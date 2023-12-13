@@ -64,10 +64,13 @@ void delete_str(Str str) {
 
 Str read_file(const char *path) {
     FILE *f = fopen(path, "r"); 
-    char buffer[BUFFER_SIZE];
- 
+    
     Str output = { malloc(sizeof(char) * BUFFER_SIZE), 0, BUFFER_SIZE };
-   
+
+    if (f == NULL) return output;
+
+    char buffer[BUFFER_SIZE];
+    
     while (!feof(f)) {
         size_t length = fread(buffer, sizeof(unsigned char), BUFFER_SIZE, f);
         concat_str(&output, buffer); 
