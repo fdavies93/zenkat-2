@@ -1,6 +1,4 @@
-#ifndef STR_INCLUDED
-#define STR_INCLUDED
-#endif
+#pragma once
 
 #include <stdio.h>
 
